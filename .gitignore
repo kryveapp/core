@@ -123,6 +123,8 @@ dist
 .tern-port
 
 # Stores VSCode versions used for testing VSCode extensions
+.vscode
+.idea
 .vscode-test
 
 # pnpm
