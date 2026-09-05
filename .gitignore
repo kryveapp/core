@@ -1,3 +1,12 @@
+.agents/
+.claude/
+.cursor/
+.devin/
+.vscode
+.idea
+
+# Below is template
+
 # Logs
 logs
 *.log
@@ -123,8 +132,6 @@ dist
 .tern-port
 
 # Stores VSCode versions used for testing VSCode extensions
-.vscode
-.idea
 .vscode-test
 
 # pnpm
