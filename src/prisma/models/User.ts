@@ -33,7 +33,7 @@ export type UserMinAggregateOutputType = {
   emailVerified: boolean | null
   bot: boolean | null
   createdAt: Date | null
-  yodatedAt: Date | null
+  updatedAt: Date | null
 }
 
 export type UserMaxAggregateOutputType = {
@@ -45,7 +45,7 @@ export type UserMaxAggregateOutputType = {
   emailVerified: boolean | null
   bot: boolean | null
   createdAt: Date | null
-  yodatedAt: Date | null
+  updatedAt: Date | null
 }
 
 export type UserCountAggregateOutputType = {
@@ -57,7 +57,7 @@ export type UserCountAggregateOutputType = {
   emailVerified: number
   bot: number
   createdAt: number
-  yodatedAt: number
+  updatedAt: number
   _all: number
 }
 
@@ -71,7 +71,7 @@ export type UserMinAggregateInputType = {
   emailVerified?: true
   bot?: true
   createdAt?: true
-  yodatedAt?: true
+  updatedAt?: true
 }
 
 export type UserMaxAggregateInputType = {
@@ -83,7 +83,7 @@ export type UserMaxAggregateInputType = {
   emailVerified?: true
   bot?: true
   createdAt?: true
-  yodatedAt?: true
+  updatedAt?: true
 }
 
 export type UserCountAggregateInputType = {
@@ -95,7 +95,7 @@ export type UserCountAggregateInputType = {
   emailVerified?: true
   bot?: true
   createdAt?: true
-  yodatedAt?: true
+  updatedAt?: true
   _all?: true
 }
 
@@ -180,7 +180,7 @@ export type UserGroupByOutputType = {
   emailVerified: boolean
   bot: boolean
   createdAt: Date
-  yodatedAt: Date
+  updatedAt: Date
   _count: UserCountAggregateOutputType | null
   _min: UserMinAggregateOutputType | null
   _max: UserMaxAggregateOutputType | null
@@ -213,7 +213,7 @@ export type UserWhereInput = {
   emailVerified?: Prisma.BoolFilter<"User"> | boolean
   bot?: Prisma.BoolFilter<"User"> | boolean
   createdAt?: Prisma.DateTimeFilter<"User"> | Date | string
-  yodatedAt?: Prisma.DateTimeFilter<"User"> | Date | string
+  updatedAt?: Prisma.DateTimeFilter<"User"> | Date | string
   sessions?: Prisma.SessionListRelationFilter
   memberships?: Prisma.ServerMemberListRelationFilter
   messages?: Prisma.MessageListRelationFilter
@@ -233,7 +233,7 @@ export type UserOrderByWithRelationInput = {
   emailVerified?: Prisma.SortOrder
   bot?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
-  yodatedAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
   sessions?: Prisma.SessionOrderByRelationAggregateInput
   memberships?: Prisma.ServerMemberOrderByRelationAggregateInput
   messages?: Prisma.MessageOrderByRelationAggregateInput
@@ -256,7 +256,7 @@ export type UserWhereUniqueInput = Prisma.AtLeast<{
   emailVerified?: Prisma.BoolFilter<"User"> | boolean
   bot?: Prisma.BoolFilter<"User"> | boolean
   createdAt?: Prisma.DateTimeFilter<"User"> | Date | string
-  yodatedAt?: Prisma.DateTimeFilter<"User"> | Date | string
+  updatedAt?: Prisma.DateTimeFilter<"User"> | Date | string
   sessions?: Prisma.SessionListRelationFilter
   memberships?: Prisma.ServerMemberListRelationFilter
   messages?: Prisma.MessageListRelationFilter
@@ -276,7 +276,7 @@ export type UserOrderByWithAggregationInput = {
   emailVerified?: Prisma.SortOrder
   bot?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
-  yodatedAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
   _count?: Prisma.UserCountOrderByAggregateInput
   _max?: Prisma.UserMaxOrderByAggregateInput
   _min?: Prisma.UserMinOrderByAggregateInput
@@ -294,7 +294,7 @@ export type UserScalarWhereWithAggregatesInput = {
   emailVerified?: Prisma.BoolWithAggregatesFilter<"User"> | boolean
   bot?: Prisma.BoolWithAggregatesFilter<"User"> | boolean
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"User"> | Date | string
-  yodatedAt?: Prisma.DateTimeWithAggregatesFilter<"User"> | Date | string
+  updatedAt?: Prisma.DateTimeWithAggregatesFilter<"User"> | Date | string
 }
 
 export type UserCreateInput = {
@@ -306,7 +306,7 @@ export type UserCreateInput = {
   emailVerified?: boolean
   bot?: boolean
   createdAt?: Date | string
-  yodatedAt?: Date | string
+  updatedAt?: Date | string
   sessions?: Prisma.SessionCreateNestedManyWithoutUserInput
   memberships?: Prisma.ServerMemberCreateNestedManyWithoutUserInput
   messages?: Prisma.MessageCreateNestedManyWithoutAuthorInput
@@ -326,7 +326,7 @@ export type UserUncheckedCreateInput = {
   emailVerified?: boolean
   bot?: boolean
   createdAt?: Date | string
-  yodatedAt?: Date | string
+  updatedAt?: Date | string
   sessions?: Prisma.SessionUncheckedCreateNestedManyWithoutUserInput
   memberships?: Prisma.ServerMemberUncheckedCreateNestedManyWithoutUserInput
   messages?: Prisma.MessageUncheckedCreateNestedManyWithoutAuthorInput
@@ -346,7 +346,7 @@ export type UserUpdateInput = {
   emailVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean
   bot?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  yodatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   sessions?: Prisma.SessionUpdateManyWithoutUserNestedInput
   memberships?: Prisma.ServerMemberUpdateManyWithoutUserNestedInput
   messages?: Prisma.MessageUpdateManyWithoutAuthorNestedInput
@@ -366,7 +366,7 @@ export type UserUncheckedUpdateInput = {
   emailVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean
   bot?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  yodatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   sessions?: Prisma.SessionUncheckedUpdateManyWithoutUserNestedInput
   memberships?: Prisma.ServerMemberUncheckedUpdateManyWithoutUserNestedInput
   messages?: Prisma.MessageUncheckedUpdateManyWithoutAuthorNestedInput
@@ -386,7 +386,7 @@ export type UserCreateManyInput = {
   emailVerified?: boolean
   bot?: boolean
   createdAt?: Date | string
-  yodatedAt?: Date | string
+  updatedAt?: Date | string
 }
 
 export type UserUpdateManyMutationInput = {
@@ -398,7 +398,7 @@ export type UserUpdateManyMutationInput = {
   emailVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean
   bot?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  yodatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type UserUncheckedUpdateManyInput = {
@@ -410,7 +410,7 @@ export type UserUncheckedUpdateManyInput = {
   emailVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean
   bot?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  yodatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type UserCountOrderByAggregateInput = {
@@ -422,7 +422,7 @@ export type UserCountOrderByAggregateInput = {
   emailVerified?: Prisma.SortOrder
   bot?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
-  yodatedAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
 }
 
 export type UserMaxOrderByAggregateInput = {
@@ -434,7 +434,7 @@ export type UserMaxOrderByAggregateInput = {
   emailVerified?: Prisma.SortOrder
   bot?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
-  yodatedAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
 }
 
 export type UserMinOrderByAggregateInput = {
@@ -446,7 +446,7 @@ export type UserMinOrderByAggregateInput = {
   emailVerified?: Prisma.SortOrder
   bot?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
-  yodatedAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
 }
 
 export type UserScalarRelationFilter = {
@@ -625,7 +625,7 @@ export type UserCreateWithoutSessionsInput = {
   emailVerified?: boolean
   bot?: boolean
   createdAt?: Date | string
-  yodatedAt?: Date | string
+  updatedAt?: Date | string
   memberships?: Prisma.ServerMemberCreateNestedManyWithoutUserInput
   messages?: Prisma.MessageCreateNestedManyWithoutAuthorInput
   sentFriends?: Prisma.FriendCreateNestedManyWithoutRequesterInput
@@ -644,7 +644,7 @@ export type UserUncheckedCreateWithoutSessionsInput = {
   emailVerified?: boolean
   bot?: boolean
   createdAt?: Date | string
-  yodatedAt?: Date | string
+  updatedAt?: Date | string
   memberships?: Prisma.ServerMemberUncheckedCreateNestedManyWithoutUserInput
   messages?: Prisma.MessageUncheckedCreateNestedManyWithoutAuthorInput
   sentFriends?: Prisma.FriendUncheckedCreateNestedManyWithoutRequesterInput
@@ -679,7 +679,7 @@ export type UserUpdateWithoutSessionsInput = {
   emailVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean
   bot?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  yodatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   memberships?: Prisma.ServerMemberUpdateManyWithoutUserNestedInput
   messages?: Prisma.MessageUpdateManyWithoutAuthorNestedInput
   sentFriends?: Prisma.FriendUpdateManyWithoutRequesterNestedInput
@@ -698,7 +698,7 @@ export type UserUncheckedUpdateWithoutSessionsInput = {
   emailVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean
   bot?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  yodatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   memberships?: Prisma.ServerMemberUncheckedUpdateManyWithoutUserNestedInput
   messages?: Prisma.MessageUncheckedUpdateManyWithoutAuthorNestedInput
   sentFriends?: Prisma.FriendUncheckedUpdateManyWithoutRequesterNestedInput
@@ -717,7 +717,7 @@ export type UserCreateWithoutOwnedServersInput = {
   emailVerified?: boolean
   bot?: boolean
   createdAt?: Date | string
-  yodatedAt?: Date | string
+  updatedAt?: Date | string
   sessions?: Prisma.SessionCreateNestedManyWithoutUserInput
   memberships?: Prisma.ServerMemberCreateNestedManyWithoutUserInput
   messages?: Prisma.MessageCreateNestedManyWithoutAuthorInput
@@ -736,7 +736,7 @@ export type UserUncheckedCreateWithoutOwnedServersInput = {
   emailVerified?: boolean
   bot?: boolean
   createdAt?: Date | string
-  yodatedAt?: Date | string
+  updatedAt?: Date | string
   sessions?: Prisma.SessionUncheckedCreateNestedManyWithoutUserInput
   memberships?: Prisma.ServerMemberUncheckedCreateNestedManyWithoutUserInput
   messages?: Prisma.MessageUncheckedCreateNestedManyWithoutAuthorInput
@@ -771,7 +771,7 @@ export type UserUpdateWithoutOwnedServersInput = {
   emailVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean
   bot?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  yodatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   sessions?: Prisma.SessionUpdateManyWithoutUserNestedInput
   memberships?: Prisma.ServerMemberUpdateManyWithoutUserNestedInput
   messages?: Prisma.MessageUpdateManyWithoutAuthorNestedInput
@@ -790,7 +790,7 @@ export type UserUncheckedUpdateWithoutOwnedServersInput = {
   emailVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean
   bot?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  yodatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   sessions?: Prisma.SessionUncheckedUpdateManyWithoutUserNestedInput
   memberships?: Prisma.ServerMemberUncheckedUpdateManyWithoutUserNestedInput
   messages?: Prisma.MessageUncheckedUpdateManyWithoutAuthorNestedInput
@@ -809,7 +809,7 @@ export type UserCreateWithoutMembershipsInput = {
   emailVerified?: boolean
   bot?: boolean
   createdAt?: Date | string
-  yodatedAt?: Date | string
+  updatedAt?: Date | string
   sessions?: Prisma.SessionCreateNestedManyWithoutUserInput
   messages?: Prisma.MessageCreateNestedManyWithoutAuthorInput
   sentFriends?: Prisma.FriendCreateNestedManyWithoutRequesterInput
@@ -828,7 +828,7 @@ export type UserUncheckedCreateWithoutMembershipsInput = {
   emailVerified?: boolean
   bot?: boolean
   createdAt?: Date | string
-  yodatedAt?: Date | string
+  updatedAt?: Date | string
   sessions?: Prisma.SessionUncheckedCreateNestedManyWithoutUserInput
   messages?: Prisma.MessageUncheckedCreateNestedManyWithoutAuthorInput
   sentFriends?: Prisma.FriendUncheckedCreateNestedManyWithoutRequesterInput
@@ -863,7 +863,7 @@ export type UserUpdateWithoutMembershipsInput = {
   emailVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean
   bot?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  yodatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   sessions?: Prisma.SessionUpdateManyWithoutUserNestedInput
   messages?: Prisma.MessageUpdateManyWithoutAuthorNestedInput
   sentFriends?: Prisma.FriendUpdateManyWithoutRequesterNestedInput
@@ -882,7 +882,7 @@ export type UserUncheckedUpdateWithoutMembershipsInput = {
   emailVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean
   bot?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  yodatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   sessions?: Prisma.SessionUncheckedUpdateManyWithoutUserNestedInput
   messages?: Prisma.MessageUncheckedUpdateManyWithoutAuthorNestedInput
   sentFriends?: Prisma.FriendUncheckedUpdateManyWithoutRequesterNestedInput
@@ -901,7 +901,7 @@ export type UserCreateWithoutMessagesInput = {
   emailVerified?: boolean
   bot?: boolean
   createdAt?: Date | string
-  yodatedAt?: Date | string
+  updatedAt?: Date | string
   sessions?: Prisma.SessionCreateNestedManyWithoutUserInput
   memberships?: Prisma.ServerMemberCreateNestedManyWithoutUserInput
   sentFriends?: Prisma.FriendCreateNestedManyWithoutRequesterInput
@@ -920,7 +920,7 @@ export type UserUncheckedCreateWithoutMessagesInput = {
   emailVerified?: boolean
   bot?: boolean
   createdAt?: Date | string
-  yodatedAt?: Date | string
+  updatedAt?: Date | string
   sessions?: Prisma.SessionUncheckedCreateNestedManyWithoutUserInput
   memberships?: Prisma.ServerMemberUncheckedCreateNestedManyWithoutUserInput
   sentFriends?: Prisma.FriendUncheckedCreateNestedManyWithoutRequesterInput
@@ -955,7 +955,7 @@ export type UserUpdateWithoutMessagesInput = {
   emailVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean
   bot?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  yodatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   sessions?: Prisma.SessionUpdateManyWithoutUserNestedInput
   memberships?: Prisma.ServerMemberUpdateManyWithoutUserNestedInput
   sentFriends?: Prisma.FriendUpdateManyWithoutRequesterNestedInput
@@ -974,7 +974,7 @@ export type UserUncheckedUpdateWithoutMessagesInput = {
   emailVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean
   bot?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  yodatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   sessions?: Prisma.SessionUncheckedUpdateManyWithoutUserNestedInput
   memberships?: Prisma.ServerMemberUncheckedUpdateManyWithoutUserNestedInput
   sentFriends?: Prisma.FriendUncheckedUpdateManyWithoutRequesterNestedInput
@@ -993,7 +993,7 @@ export type UserCreateWithoutPmChannelsInput = {
   emailVerified?: boolean
   bot?: boolean
   createdAt?: Date | string
-  yodatedAt?: Date | string
+  updatedAt?: Date | string
   sessions?: Prisma.SessionCreateNestedManyWithoutUserInput
   memberships?: Prisma.ServerMemberCreateNestedManyWithoutUserInput
   messages?: Prisma.MessageCreateNestedManyWithoutAuthorInput
@@ -1012,7 +1012,7 @@ export type UserUncheckedCreateWithoutPmChannelsInput = {
   emailVerified?: boolean
   bot?: boolean
   createdAt?: Date | string
-  yodatedAt?: Date | string
+  updatedAt?: Date | string
   sessions?: Prisma.SessionUncheckedCreateNestedManyWithoutUserInput
   memberships?: Prisma.ServerMemberUncheckedCreateNestedManyWithoutUserInput
   messages?: Prisma.MessageUncheckedCreateNestedManyWithoutAuthorInput
@@ -1055,7 +1055,7 @@ export type UserScalarWhereInput = {
   emailVerified?: Prisma.BoolFilter<"User"> | boolean
   bot?: Prisma.BoolFilter<"User"> | boolean
   createdAt?: Prisma.DateTimeFilter<"User"> | Date | string
-  yodatedAt?: Prisma.DateTimeFilter<"User"> | Date | string
+  updatedAt?: Prisma.DateTimeFilter<"User"> | Date | string
 }
 
 export type UserCreateWithoutPrivateMessagesInput = {
@@ -1067,7 +1067,7 @@ export type UserCreateWithoutPrivateMessagesInput = {
   emailVerified?: boolean
   bot?: boolean
   createdAt?: Date | string
-  yodatedAt?: Date | string
+  updatedAt?: Date | string
   sessions?: Prisma.SessionCreateNestedManyWithoutUserInput
   memberships?: Prisma.ServerMemberCreateNestedManyWithoutUserInput
   messages?: Prisma.MessageCreateNestedManyWithoutAuthorInput
@@ -1086,7 +1086,7 @@ export type UserUncheckedCreateWithoutPrivateMessagesInput = {
   emailVerified?: boolean
   bot?: boolean
   createdAt?: Date | string
-  yodatedAt?: Date | string
+  updatedAt?: Date | string
   sessions?: Prisma.SessionUncheckedCreateNestedManyWithoutUserInput
   memberships?: Prisma.ServerMemberUncheckedCreateNestedManyWithoutUserInput
   messages?: Prisma.MessageUncheckedCreateNestedManyWithoutAuthorInput
@@ -1121,7 +1121,7 @@ export type UserUpdateWithoutPrivateMessagesInput = {
   emailVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean
   bot?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  yodatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   sessions?: Prisma.SessionUpdateManyWithoutUserNestedInput
   memberships?: Prisma.ServerMemberUpdateManyWithoutUserNestedInput
   messages?: Prisma.MessageUpdateManyWithoutAuthorNestedInput
@@ -1140,7 +1140,7 @@ export type UserUncheckedUpdateWithoutPrivateMessagesInput = {
   emailVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean
   bot?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  yodatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   sessions?: Prisma.SessionUncheckedUpdateManyWithoutUserNestedInput
   memberships?: Prisma.ServerMemberUncheckedUpdateManyWithoutUserNestedInput
   messages?: Prisma.MessageUncheckedUpdateManyWithoutAuthorNestedInput
@@ -1159,7 +1159,7 @@ export type UserCreateWithoutSentFriendsInput = {
   emailVerified?: boolean
   bot?: boolean
   createdAt?: Date | string
-  yodatedAt?: Date | string
+  updatedAt?: Date | string
   sessions?: Prisma.SessionCreateNestedManyWithoutUserInput
   memberships?: Prisma.ServerMemberCreateNestedManyWithoutUserInput
   messages?: Prisma.MessageCreateNestedManyWithoutAuthorInput
@@ -1178,7 +1178,7 @@ export type UserUncheckedCreateWithoutSentFriendsInput = {
   emailVerified?: boolean
   bot?: boolean
   createdAt?: Date | string
-  yodatedAt?: Date | string
+  updatedAt?: Date | string
   sessions?: Prisma.SessionUncheckedCreateNestedManyWithoutUserInput
   memberships?: Prisma.ServerMemberUncheckedCreateNestedManyWithoutUserInput
   messages?: Prisma.MessageUncheckedCreateNestedManyWithoutAuthorInput
@@ -1202,7 +1202,7 @@ export type UserCreateWithoutReceivedFriendsInput = {
   emailVerified?: boolean
   bot?: boolean
   createdAt?: Date | string
-  yodatedAt?: Date | string
+  updatedAt?: Date | string
   sessions?: Prisma.SessionCreateNestedManyWithoutUserInput
   memberships?: Prisma.ServerMemberCreateNestedManyWithoutUserInput
   messages?: Prisma.MessageCreateNestedManyWithoutAuthorInput
@@ -1221,7 +1221,7 @@ export type UserUncheckedCreateWithoutReceivedFriendsInput = {
   emailVerified?: boolean
   bot?: boolean
   createdAt?: Date | string
-  yodatedAt?: Date | string
+  updatedAt?: Date | string
   sessions?: Prisma.SessionUncheckedCreateNestedManyWithoutUserInput
   memberships?: Prisma.ServerMemberUncheckedCreateNestedManyWithoutUserInput
   messages?: Prisma.MessageUncheckedCreateNestedManyWithoutAuthorInput
@@ -1256,7 +1256,7 @@ export type UserUpdateWithoutSentFriendsInput = {
   emailVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean
   bot?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  yodatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   sessions?: Prisma.SessionUpdateManyWithoutUserNestedInput
   memberships?: Prisma.ServerMemberUpdateManyWithoutUserNestedInput
   messages?: Prisma.MessageUpdateManyWithoutAuthorNestedInput
@@ -1275,7 +1275,7 @@ export type UserUncheckedUpdateWithoutSentFriendsInput = {
   emailVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean
   bot?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  yodatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   sessions?: Prisma.SessionUncheckedUpdateManyWithoutUserNestedInput
   memberships?: Prisma.ServerMemberUncheckedUpdateManyWithoutUserNestedInput
   messages?: Prisma.MessageUncheckedUpdateManyWithoutAuthorNestedInput
@@ -1305,7 +1305,7 @@ export type UserUpdateWithoutReceivedFriendsInput = {
   emailVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean
   bot?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  yodatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   sessions?: Prisma.SessionUpdateManyWithoutUserNestedInput
   memberships?: Prisma.ServerMemberUpdateManyWithoutUserNestedInput
   messages?: Prisma.MessageUpdateManyWithoutAuthorNestedInput
@@ -1324,7 +1324,7 @@ export type UserUncheckedUpdateWithoutReceivedFriendsInput = {
   emailVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean
   bot?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  yodatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   sessions?: Prisma.SessionUncheckedUpdateManyWithoutUserNestedInput
   memberships?: Prisma.ServerMemberUncheckedUpdateManyWithoutUserNestedInput
   messages?: Prisma.MessageUncheckedUpdateManyWithoutAuthorNestedInput
@@ -1343,7 +1343,7 @@ export type UserUpdateWithoutPmChannelsInput = {
   emailVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean
   bot?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  yodatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   sessions?: Prisma.SessionUpdateManyWithoutUserNestedInput
   memberships?: Prisma.ServerMemberUpdateManyWithoutUserNestedInput
   messages?: Prisma.MessageUpdateManyWithoutAuthorNestedInput
@@ -1362,7 +1362,7 @@ export type UserUncheckedUpdateWithoutPmChannelsInput = {
   emailVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean
   bot?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  yodatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   sessions?: Prisma.SessionUncheckedUpdateManyWithoutUserNestedInput
   memberships?: Prisma.ServerMemberUncheckedUpdateManyWithoutUserNestedInput
   messages?: Prisma.MessageUncheckedUpdateManyWithoutAuthorNestedInput
@@ -1381,7 +1381,7 @@ export type UserUncheckedUpdateManyWithoutPmChannelsInput = {
   emailVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean
   bot?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  yodatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 
@@ -1487,7 +1487,7 @@ export type UserSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = r
   emailVerified?: boolean
   bot?: boolean
   createdAt?: boolean
-  yodatedAt?: boolean
+  updatedAt?: boolean
   sessions?: boolean | Prisma.User$sessionsArgs<ExtArgs>
   memberships?: boolean | Prisma.User$membershipsArgs<ExtArgs>
   messages?: boolean | Prisma.User$messagesArgs<ExtArgs>
@@ -1508,7 +1508,7 @@ export type UserSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensio
   emailVerified?: boolean
   bot?: boolean
   createdAt?: boolean
-  yodatedAt?: boolean
+  updatedAt?: boolean
 }, ExtArgs["result"]["user"]>
 
 export type UserSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -1520,7 +1520,7 @@ export type UserSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensio
   emailVerified?: boolean
   bot?: boolean
   createdAt?: boolean
-  yodatedAt?: boolean
+  updatedAt?: boolean
 }, ExtArgs["result"]["user"]>
 
 export type UserSelectScalar = {
@@ -1532,10 +1532,10 @@ export type UserSelectScalar = {
   emailVerified?: boolean
   bot?: boolean
   createdAt?: boolean
-  yodatedAt?: boolean
+  updatedAt?: boolean
 }
 
-export type UserOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "username" | "email" | "passwordHash" | "avatarUrl" | "emailVerified" | "bot" | "createdAt" | "yodatedAt", ExtArgs["result"]["user"]>
+export type UserOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "username" | "email" | "passwordHash" | "avatarUrl" | "emailVerified" | "bot" | "createdAt" | "updatedAt", ExtArgs["result"]["user"]>
 export type UserInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   sessions?: boolean | Prisma.User$sessionsArgs<ExtArgs>
   memberships?: boolean | Prisma.User$membershipsArgs<ExtArgs>
@@ -1571,7 +1571,7 @@ export type $UserPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs =
     emailVerified: boolean
     bot: boolean
     createdAt: Date
-    yodatedAt: Date
+    updatedAt: Date
   }, ExtArgs["result"]["user"]>
   composites: {}
 }
@@ -2011,7 +2011,7 @@ export interface UserFieldRefs {
   readonly emailVerified: Prisma.FieldRef<"User", 'Boolean'>
   readonly bot: Prisma.FieldRef<"User", 'Boolean'>
   readonly createdAt: Prisma.FieldRef<"User", 'DateTime'>
-  readonly yodatedAt: Prisma.FieldRef<"User", 'DateTime'>
+  readonly updatedAt: Prisma.FieldRef<"User", 'DateTime'>
 }
     
 

@@ -34,7 +34,7 @@ model User {
   emailVerified Boolean  @default(false)
   bot           Boolean  @default(false)
   createdAt     DateTime @default(now())
-  yodatedAt     DateTime @updatedAt
+  updatedAt     DateTime @updatedAt
 
   // Relations
   sessions        Session[]

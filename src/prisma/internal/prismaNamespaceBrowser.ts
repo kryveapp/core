@@ -90,7 +90,7 @@ export const UserScalarFieldEnum = {
   emailVerified: 'emailVerified',
   bot: 'bot',
   createdAt: 'createdAt',
-  yodatedAt: 'yodatedAt'
+  updatedAt: 'updatedAt'
 } as const
 
 export type UserScalarFieldEnum = (typeof UserScalarFieldEnum)[keyof typeof UserScalarFieldEnum]
