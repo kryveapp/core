@@ -23,6 +23,8 @@ enum MessageType {
   REPLY
 }
 
+// MODELS
+
 model User {
   id            String   @id @default(cuid())
   username      String   @unique
