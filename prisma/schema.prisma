@@ -10,3 +10,197 @@ datasource db {
 }
 
 // Database schema below
+
+// ENUMS
+enum ChannelType {
+  TEXT
+  VOICE
+}
+
+enum MessageType {
+  DEFAULT
+  SYSTEM
+  REPLY
+}
+
+model User {
+  id            String   @id @default(cuid())
+  username      String   @unique
+  email         String   @unique
+  passwordHash  String   @unique
+  avatarUrl     String?
+  emailVerified Boolean  @default(false)
+  bot           Boolean  @default(false)
+  createdAt     DateTime @default(now())
+  yodatedAt     DateTime @updatedAt
+
+  // Relations
+  sessions        Session[]
+  memberships     ServerMember[]
+  messages        Message[]
+  sentFriends     Friend[]         @relation("FriendRequester")
+  receivedFriends Friend[]         @relation("FriendReceiver")
+  ownedServers    Server[]         @relation("ServerOwner")
+  privateMessages PrivateMessage[]
+  pmChannels      PMChannel[]      @relation("PMParticipants")
+}
+
+model Session {
+  id        String   @id @default(cuid())
+  userId    String
+  token     String   @unique
+  expiresAt DateTime
+  createdAt DateTime @default(now())
+  ipAddress String?
+  userAgent String?
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model Server {
+  id          String   @id @default(cuid())
+  name        String
+  description String?
+  iconUrl     String?
+  ownerId     String
+  inviteCode  String   @unique @default(cuid())
+  public      Boolean  @default(false)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  // Relations
+  owner      User           @relation("ServerOwner", fields: [ownerId], references: [id])
+  members    ServerMember[]
+  channels   Channel[]
+  roles      Role[]
+  categories Category[]
+}
+
+model ServerMember {
+  id       String     @id @default(cuid())
+  userId   String
+  serverId String
+  nickname String?
+  joinedAt DateTime   @default(now())
+
+  // Relations
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+  server Server @relation(fields: [serverId], references: [id], onDelete: Cascade)
+  roles  Role[] @relation("MemberRoles")
+
+  @@unique([userId, serverId])
+}
+
+model Role {
+  id          String   @id @default(cuid())
+  serverId    String
+  name        String
+  color       String?  // hex color
+  permissions BigInt   @default(0) // bitmask
+  position    Int      @default(0)
+  mentionable Boolean  @default(false)
+  createdAt   DateTime @default(now())
+
+  // Relations
+  server      Server         @relation(fields: [serverId], references: [id], onDelete: Cascade)
+  members     ServerMember[] @relation("MemberRoles")
+}
+
+model Category {
+  id        String    @id @default(cuid())
+  serverId  String
+  name      String
+  position  Int       @default(0)
+
+  // Relations
+  server    Server    @relation(fields: [serverId], references: [id], onDelete: Cascade)
+  channels  Channel[]
+}
+
+model Channel {
+  id          String      @id @default(cuid())
+  serverId    String
+  categoryId  String?
+  name        String
+  type        ChannelType @default(TEXT)
+  topic       String?
+  position    Int         @default(0)
+  slowMode    Int         @default(0) // seconds between messages
+  nsfw        Boolean     @default(false)
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @updatedAt
+
+  // Relations
+  server      Server      @relation(fields: [serverId], references: [id], onDelete: Cascade)
+  category    Category?   @relation(fields: [categoryId], references: [id], onDelete: SetNull)
+  messages    Message[]
+}
+
+model Message {
+  id          String      @id @default(cuid())
+  channelId   String
+  authorId    String
+  content     String
+  type        MessageType @default(DEFAULT)
+  replyToId   String?     // for replies
+  edited      Boolean     @default(false)
+  editedAt    DateTime?
+  deletedAt   DateTime?   // soft delete
+  createdAt   DateTime    @default(now())
+
+  // Relations
+  channel     Channel     @relation(fields: [channelId], references: [id], onDelete: Cascade)
+  author      User        @relation(fields: [authorId], references: [id])
+  replyTo     Message?    @relation("MessageReplies", fields: [replyToId], references: [id])
+  replies     Message[]   @relation("MessageReplies")
+  attachments Attachment[]
+}
+
+model Attachment {
+  id        String   @id @default(cuid())
+  messageId String
+  url       String
+  filename  String
+  size      Int      // bytes
+  mimeType  String
+  width     Int?     // for images
+  height    Int?     // for images
+
+  // Relations
+  message   Message  @relation(fields: [messageId], references: [id], onDelete: Cascade)
+}
+
+model PMChannel {
+  id           String          @id @default(cuid())
+  createdAt    DateTime        @default(now())
+
+  // Relations
+  participants User[]          @relation("PMParticipants")
+  messages     PrivateMessage[]
+}
+
+model PrivateMessage {
+  id          String    @id @default(cuid())
+  channelId   String
+  authorId    String
+  content     String    // encrypted (Signal Protocol)
+  editedAt    DateTime?
+  deletedAt   DateTime? // soft delete
+  createdAt   DateTime  @default(now())
+
+  channel     PMChannel @relation(fields: [channelId], references: [id], onDelete: Cascade)
+  author      User      @relation(fields: [authorId], references: [id])
+}
+
+model Friend {
+  id          String   @id @default(cuid())
+  requesterId String
+  receiverId  String
+  accepted    Boolean  @default(false)
+  createdAt   DateTime @default(now())
+
+  requester   User     @relation("FriendRequester", fields: [requesterId], references: [id], onDelete: Cascade)
+  receiver    User     @relation("FriendReceiver", fields: [receiverId], references: [id], onDelete: Cascade)
+
+  @@unique([requesterId, receiverId])
+}

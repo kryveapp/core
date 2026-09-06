@@ -8,4 +8,16 @@
  *
  * 🟢 You can import this file directly.
  */
+export type * from './models/User'
+export type * from './models/Session'
+export type * from './models/Server'
+export type * from './models/ServerMember'
+export type * from './models/Role'
+export type * from './models/Category'
+export type * from './models/Channel'
+export type * from './models/Message'
+export type * from './models/Attachment'
+export type * from './models/PMChannel'
+export type * from './models/PrivateMessage'
+export type * from './models/Friend'
 export type * from './commonInputTypes'
