@@ -1,4 +1,4 @@
-git# Contributing
+# Contributing
 Big thanks for helping out on this project! However there are a few rules to make sure everyones on the same page, and to keep the codebase readable.
 
 ## Branches
