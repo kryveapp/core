@@ -4,7 +4,6 @@ Big thanks for helping out on this project! However there are a few rules to mak
 ## Branches
 - **never commit to `main`**
 - Always make a new branch for every fix or feature added branched off of the latest main
-- Name branches by type and topic and kebab case; (fix/missing-endpoint, feature/direct-messages)
 
 ## Opening PR's
 - Push your branch and open a PR against main
